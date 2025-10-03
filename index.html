@@ -1,34 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>BMI Calculator (version 2)</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trendy BMI Calculator</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-    	<div class="panel">
-    		<h2 class="text-center">Check your BMI</h2>
-    		
-    			<p id="introText" class="text-center">Enter your weight and height below to check your BMI results</p>
-    			
-    			<form>
-    				<div id="weightInput">
-    					<p>Put your weight in here (KG)</p>
-    		     		<input id="weight" type="number" pattern="[0-9]*" name="a" />
-    				</div>
-    				<div id="heightInput">
-    					<p>And your height in here (CM)</p>
-	    				 <input id="height" type="number" pattern="[0-9]*" name="b"/> 
-    				</div>
-    		     <button type="button" class="btn" onclick="calculate()">Calculate BMI</button>
-    		</form>
-    		<div id="results" class="text-center">Your BMI results will appear here</div>
-    	</div>
-    </div>
-	<div id="table">
+<div class="container">
+	<div class="card">
+		<h2>BMI Calculator</h2>
+		<p>Enter your weight and height to calculate BMI</p>
+		<form>
+			<input id="weight" type="number" placeholder="Weight (kg)">
+			<input id="height" type="number" placeholder="Height (cm)">
+			<button type="button" onclick="calculate()">Calculate BMI</button>
+		</form>
+		<div id="results">Your BMI results will appear here</div>
+	</div>
+
+	<div class="bmi-table">
+		<h3>BMI Categories</h3>
 		<table>
-			<caption>BMI INDEX:</caption>
 			<tr>
 				<th>Underweight</th>
 				<th>Healthy</th>
@@ -36,14 +30,14 @@
 				<th>Obese</th>
 			</tr>
 			<tr>
-				<td>Below 18.5</td>
+				<td>&lt; 18.5</td>
 				<td>18.5 - 24.9</td>
-				<td>25.0 - 29.9 </td>
-				<td>30.0 and above</td>
-
+				<td>25 - 29.9</td>
+				<td>30+</td>
 			</tr>
 		</table>
 	</div>
-	<script src="main.js"></script>
+</div>
+<script src="main.js"></script>
 </body>
 </html>

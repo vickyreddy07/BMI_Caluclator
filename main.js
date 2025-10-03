@@ -1,35 +1,21 @@
-var weight, height, measure, bmi, error ;
-
 function calculate() {
-	weight = document.getElementById("weight").value;
-	height = document.getElementById("height").value;
-	error = "Please enter some values";
-	height /= 100;
-	height *= height;
-	bmi = weight/height;
-	bmi = bmi.toFixed(1);
+    let weight = document.getElementById("weight").value;
+    let height = document.getElementById("height").value;
+    let results = document.getElementById("results");
 
-	if (bmi <= 18.4) {
-		measure = "Your BMI is " + bmi + " which means " + "you are Underweight";
-	} else if (bmi >= 18.5 && bmi <= 24.9) {
-		measure = "Your BMI is " + bmi + " which means " + "You are Normal";
-	} else if (bmi >= 25 && bmi <= 29.9) {
-		measure = "Your BMI is " + bmi + " which means " + "You are Overweight";
-	} else if (bmi >= 30) {
-		measure = "Your BMI is " + bmi + " which means " + "You are Obese";
-	}
-	
+    if (!weight || !height || weight <= 0 || height <= 0) {
+        results.innerHTML = "⚠️ Please enter valid values!";
+        return;
+    }
 
-	if (weight === 0 ) {
-		document.getElementById("results").innerHTML = error;
-	} else if (height === 0){
-		document.getElementById("results").innerHTML = error;
-	}
-	 else {
+    height = height / 100; // convert cm to meters
+    let bmi = (weight / (height * height)).toFixed(1);
 
-		document.getElementById("results").innerHTML = measure;
-	}
-	if (weight < 0) {
-		document.getElementById("results").innerHTML = "Negative Values not Allowed";
-	}
+    let message = "";
+    if (bmi < 18.5) message = `Your BMI is ${bmi} → Underweight 😕`;
+    else if (bmi <= 24.9) message = `Your BMI is ${bmi} → Healthy 🥦`;
+    else if (bmi <= 29.9) message = `Your BMI is ${bmi} → Overweight ⚠️`;
+    else message = `Your BMI is ${bmi} → Obese 🚨`;
+
+    results.innerHTML = message;
 }
